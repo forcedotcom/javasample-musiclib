@@ -1,0 +1,8 @@
+# For a real production deployment, you should strongly consider using one of the environment variable based
+# JPA setup strategies.
+#
+# Password consists of your force.com password concatenated with your force.com secret token.
+# You can obtain a token from within the Admin console, Setup -> My Personal Information -> Reset my Security Token
+# You are also emailed a new security token any time you change your force.com password.
+
+url=force://vmf01.t.salesforce.com/services/Soap/u/20.0;user=<your username>;password=<your password>
