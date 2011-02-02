@@ -11,6 +11,12 @@
       <properties>
       	 <property name="datanucleus.storeManagerType" value="force"/>
       	 <property name="datanucleus.autoCreateSchema" value="true"/>
+         <property name="datanucleus.validateTables" value="false"/>
+         <property name="datanucleus.validateConstraints" value="false"/>
+         <property name="datanucleus.Optimistic" value="false"/>
+         <property name="datanucleus.datastoreTransactionDelayOperations" value="true"/>
+         <property name="datanucleus.jpa.addClassTransformer" value="false"/>
+         <property name="datanucleus.cache.level2.type" value="none"/>
       </properties>
    </persistence-unit>
 </persistence>
