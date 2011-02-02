@@ -39,29 +39,9 @@ public class AlbumDetailController {
 		return mv;
 	}
 
-	@RequestMapping(value="/{album}/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/album/{id}", method=RequestMethod.POST)
 	public String update(ModelAndView mv, @ModelAttribute Album album) {
 		return "redirect:/album/"+musicService.saveAlbum(album);
 	}
-	
-//	@InitBinder
-//	public void binder(WebDataBinder binder) {
-//		binder.registerCustomEditor(Date.class, new PropertyEditorSupport() {
-//			public void setAsText(String value) {
-//				try {
-//					setValue(new SimpleDateFormat("yyyy-MM-dd").parse(value));
-//				} catch (ParseException e) {
-//					setValue(null);
-//				}
-//			}
-//
-//			public String getAsText() {
-//				return new SimpleDateFormat("yyyy-MM-dd")
-//						.format((Date) getValue());
-//			}
-//
-//		});
-//	}
-
 }
 

@@ -25,12 +25,16 @@ public class MusicService {
 	@SuppressWarnings("rawtypes")
 	@Transactional(readOnly=true)
 	public List getList(String entity, String query) {
+		List l = null;
+		long t=System.currentTimeMillis();
 		if(query!=null) {
 			// This is clearly just for playing around. Wide open to JPQL injection.
-			return em.createQuery("SELECT o FROM "+entity+" o WHERE "+query).getResultList();
+			l = em.createQuery("SELECT o FROM "+entity+" o WHERE "+query).getResultList();
 		} else {
-			return em.createQuery("SELECT o FROM "+entity+" o").getResultList();
+			l = em.createQuery("SELECT o FROM "+entity+" o").getResultList();
 		}
+		logger.info("Took "+(System.currentTimeMillis()-t)+" millis");
+		return l;
 	}
 
 	@Transactional(readOnly=true)

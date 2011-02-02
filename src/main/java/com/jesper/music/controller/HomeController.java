@@ -22,7 +22,7 @@ import com.jesper.music.service.MusicService;
 @Controller
 public class HomeController {
 
-	//private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	enum ManagedEntities {
 		album (Album.class),
@@ -51,8 +51,10 @@ public class HomeController {
 
 	@RequestMapping(value="/{entity}/", method=RequestMethod.GET)
 	public ModelAndView entityList(ModelAndView mv, @PathVariable("entity") ManagedEntities entity, @RequestParam(value="q", required=false) String query) {
+		long t=System.currentTimeMillis();
 		mv.addObject("list", musicService.getList(entity.getClassName(),query));
 		mv.setViewName(entity+"_list");
+		logger.info("Controller method took "+(System.currentTimeMillis()-t)+" millis.");
 		return mv;
 	}
 }
