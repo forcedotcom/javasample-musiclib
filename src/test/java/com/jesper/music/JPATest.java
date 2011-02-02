@@ -12,6 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jesper.music.model.Album;
 import com.jesper.music.model.Artist;
@@ -129,6 +130,56 @@ public class JPATest {
 		tx.commit();
 		em.close();
 	}
+
+	@Test
+	public void testUpdateWithTransactionAnnotation() {
+		
+		EntityManager em = getEntityManager();
+
+		EntityTransaction tx = em.getTransaction();
+
+		tx.begin();
+		
+		Album album = new Album();
+		
+		Calendar cal = Calendar.getInstance();
+
+		album.setName("The Beginning");
+		cal.set(2010,11,1);
+		album.setReleaseDate(cal.getTime());
+
+		em.persist(album);
+
+		tx.commit();
+		
+		String albumId = album.getId();
+
+		tx = em.getTransaction();
+
+		tx.begin();
+
+		album = em.find(Album.class, albumId);
+		
+		assertEquals(album.getName(),"The Beginning");
+
+		cal.set(2010,8,1);
+
+		album.setReleaseDate(cal.getTime());
+		
+		em.merge(album);
+		
+		tx.commit();
+
+		tx = em.getTransaction();
+
+		tx.begin();
+
+		//em.remove(em.find(Album.class, albumId));
+		
+		tx.commit();
+		em.close();
+	}
+	
 
 	private static EntityManager getEntityManager() {
 		EntityManagerFactory emFactory = context.getBean("entityManagerFactory", EntityManagerFactory.class);
