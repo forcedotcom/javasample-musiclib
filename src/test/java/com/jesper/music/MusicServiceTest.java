@@ -1,7 +1,8 @@
 package com.jesper.music;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Calendar;
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -37,6 +38,7 @@ public class MusicServiceTest {
 	private EntityManager em;
 	
 	private String testAlbumId;
+	private String testArtistId;
 	
 	@BeforeTransaction
 	public void createTestData() {
@@ -72,6 +74,7 @@ public class MusicServiceTest {
 		tx.commit();
 
 		testAlbumId = album.getId();
+		testArtistId = artist.getId();
 	}
 	
 	@AfterTransaction
@@ -90,20 +93,56 @@ public class MusicServiceTest {
 		tx.commit();
 	}
 	
-//	@Test
-//	@Transactional
-//	public void testMusic() {
-//		assertEquals("The Beginning",musicService.findAlbumById(testAlbumId).getName());
-//		System.out.println("Test completed.");
-//	}
-//	
+		
 	@Test
-	@Transactional(readOnly=true) 
-	public void get100Records() {
-		long t = System.currentTimeMillis();
-		List<Album> l = em.createQuery("SELECT a FROM Album a",Album.class).getResultList();
-		System.out.println("Retrieved "+l.size()+" in "+(System.currentTimeMillis()-t)+" millis");
+	@Transactional(readOnly=true)
+	public void testFind() {
+		assertEquals("The Beginning",musicService.findAlbumById(testAlbumId).getName());
 	}
+
+	@Test
+	@Transactional(readOnly=true)
+	public void testGetRelated() {
+		Artist a = (Artist) musicService.findEntity(Artist.class, testArtistId);
+		a.getAlbums();
+	}
+
+//	@Test
+//	@Transactional(readOnly=true)
+//	public void testFind() {
+//		assertEquals("The Beginning",musicService.findAlbumById(testAlbumId).getName());
+//	}
+	
+	
+	
+	
+//	
+//	@Test
+//	@Transactional(readOnly=true) 
+//	public void get100Records() {
+//		long t = System.currentTimeMillis();
+//		List<Album> l = em.createQuery("SELECT a FROM Album a",Album.class).getResultList();
+//		System.out.println("Retrieved "+l.size()+" in "+(System.currentTimeMillis()-t)+" millis");
+//	}
+	
+//	@Test
+//	public void get100NoTx() {
+//		long t = System.currentTimeMillis();
+//		EntityManagerFactory emFactory = context.getBean("entityManagerFactory", EntityManagerFactory.class);
+//		EntityManager mgr = emFactory.createEntityManager();
+//		System.out.println("Got entity manager in "+(System.currentTimeMillis()-t)+" millis");
+//		t = System.currentTimeMillis();
+//		EntityTransaction tx = mgr.getTransaction();
+//		tx.begin();
+//		System.out.println("Opened transaction in "+(System.currentTimeMillis()-t)+" millis");
+//		t = System.currentTimeMillis();
+//		List<Album> l = em.createQuery("SELECT a FROM Album a",Album.class).getResultList();
+//		System.out.println("Retrieved "+l.size()+" in "+(System.currentTimeMillis()-t)+" millis");
+//		t = System.currentTimeMillis();
+//		
+//		tx.commit();
+//		System.out.println("Committed transaction in "+(System.currentTimeMillis()-t)+" millis");
+//	}
 	
 //	@Test
 //	public void get100Records2() {
