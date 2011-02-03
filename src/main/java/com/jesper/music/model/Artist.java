@@ -1,11 +1,16 @@
 package com.jesper.music.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import com.force.sdk.jpa.annotation.CustomField;
 
@@ -23,9 +28,23 @@ public class Artist {
     
     private String origin;
     
+    @DateTimeFormat(iso=ISO.DATE)
     private Date activeStart;
     
+    @DateTimeFormat(iso=ISO.DATE)
     private Date activeEnd;
+    
+    @OneToMany(mappedBy="artist")
+    private List<Album> albums;
+
+    
+	public List<Album> getAlbums() {
+		return albums;
+	}
+
+	public void setAlbums(List<Album> albums) {
+		this.albums = albums;
+	}
 
 	public String getId() {
 		return id;
