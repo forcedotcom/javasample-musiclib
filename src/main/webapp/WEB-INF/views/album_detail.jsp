@@ -20,7 +20,7 @@
 				<td>Genre:</td><td><form:input size="40" path="genre.name"/></td>
 			</tr>
 			<tr>
-				<td>Release Year:</td><td><form:input size="40" path="releaseDate"/></td>
+				<td>Release Date:</td><td><form:input size="40" path="releaseDate"/></td>
 			</tr>
 		</table>
 		<p/>
