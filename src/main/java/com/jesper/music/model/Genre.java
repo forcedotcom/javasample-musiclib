@@ -1,9 +1,12 @@
 package com.jesper.music.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.force.sdk.jpa.annotation.CustomField;
 
@@ -18,6 +21,17 @@ public class Genre {
     
     @CustomField(externalId=true)
     private String freebaseId;
+
+    @OneToMany(mappedBy="genre")
+    private List<Album> albums;
+
+    public List<Album> getAlbums() {
+		return albums;
+	}
+
+	public void setAlbums(List<Album> albums) {
+		this.albums = albums;
+	}
 
 	public String getId() {
 		return id;
