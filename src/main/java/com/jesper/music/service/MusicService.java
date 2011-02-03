@@ -85,7 +85,7 @@ public class MusicService {
 	}
 
 	@Transactional
-	public String saveAlbum(Album album) {
+	public Album saveAlbum(Album album) {
 		if(album.getArtist().getId()==null) {
 			em.persist(album.getArtist());
 		}
@@ -95,29 +95,29 @@ public class MusicService {
 		if(album.getId()==null) {
 			em.persist(album);
 		} else {
-			em.merge(album);
+			album = em.merge(album);
 		}
-		return album.getId();
+		return album;
 	}
 
 	@Transactional
-	public String saveGenre(Genre genre) {
+	public Genre saveGenre(Genre genre) {
 		if(genre.getId()==null) {
 			em.persist(genre);
 		} else {
-			em.merge(genre);
+			genre = em.merge(genre);
 		}
-		return genre.getId();
+		return genre;
 	}
 
 	@Transactional
-	public String saveArtist(Artist artist) {
+	public Artist saveArtist(Artist artist) {
 		if(artist.getId()==null) {
 			em.persist(artist);
 		} else {
-			em.merge(artist);
+			artist =  em.merge(artist);
 		}
-		return artist.getId();
+		return artist;
 	}
 
 

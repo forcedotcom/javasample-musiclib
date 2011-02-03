@@ -41,7 +41,7 @@ public class AlbumDetailController {
 
 	@RequestMapping(value="/album/{id}", method=RequestMethod.POST)
 	public String update(ModelAndView mv, @ModelAttribute Album album) {
-		return "redirect:/album/"+musicService.saveAlbum(album);
+		return "redirect:/album/"+musicService.saveAlbum(album).getId();
 	}
 }
 
