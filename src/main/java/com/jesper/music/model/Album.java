@@ -3,6 +3,7 @@ package com.jesper.music.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,10 +29,10 @@ public class Album {
     @CustomField(externalId=true)
     private String freebaseId;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     private Artist artist;
     
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     private Genre genre;
 
 	public String getId() {
