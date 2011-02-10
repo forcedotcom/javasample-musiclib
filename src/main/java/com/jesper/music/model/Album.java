@@ -29,10 +29,10 @@ public class Album {
     @CustomField(externalId=true)
     private String freebaseId;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne
     private Artist artist;
     
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne
     private Genre genre;
 
 	public String getId() {
