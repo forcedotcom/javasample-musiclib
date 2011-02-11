@@ -18,6 +18,9 @@ import com.jesper.music.model.Genre;
 public class MusicService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MusicService.class);
+	
+	static String QUERY_WITH_WHERE = "SELECT o FROM %s o WHERE %s";
+	static String QUERY_WITHOUT_WHERE = "SELECT o FROM %s o";
 
 	@PersistenceContext
 	EntityManager em;
@@ -25,32 +28,19 @@ public class MusicService {
 	@SuppressWarnings("rawtypes")
 	@Transactional(readOnly=true)
 	public List getList(String entity, String query) {
+		if(entity==null) {
+			throw new IllegalArgumentException("entity cannot be null");
+		}
 		List l = null;
 		long t=System.currentTimeMillis();
 		if(query!=null) {
 			// This is clearly just for playing around. Wide open to JPQL injection.
-			l = em.createQuery("SELECT o FROM "+entity+" o WHERE "+query).getResultList();
+			l = em.createQuery(String.format(QUERY_WITH_WHERE,entity,query)).getResultList();
 		} else {
-			l = em.createQuery("SELECT o FROM "+entity+" o").getResultList();
+			l = em.createQuery(String.format(QUERY_WITHOUT_WHERE,entity)).getResultList();
 		}
 		logger.info("Took "+(System.currentTimeMillis()-t)+" millis");
 		return l;
-	}
-
-	@Transactional(readOnly=true)
-	public Album findAlbumById(String id) {
-		try {
-			Album a = em.find(Album.class, id);
-			if(a==null) {
-				a = new Album();
-			}
-			return a;
-		}
-		catch(Exception e) {
-			logger.info("find threw exception: "+e+": "+e.getMessage());
-			logger.info("Will return null");
-			return null;
-		}
 	}
 
 	@Transactional
@@ -86,10 +76,10 @@ public class MusicService {
 
 	@Transactional
 	public Album saveAlbum(Album album) {
-		if(album.getArtist().getId()==null) {
+		if(album.getArtist()!=null && album.getArtist().getId()==null) {
 			em.persist(album.getArtist());
 		}
-		if(album.getGenre().getId()==null) {
+		if(album.getGenre()!=null && album.getGenre().getId()==null) {
 			em.persist(album.getGenre());
 		}
 		if(album.getId()==null) {
@@ -118,6 +108,10 @@ public class MusicService {
 			artist =  em.merge(artist);
 		}
 		return artist;
+	}
+
+	public void setEntityManager(EntityManager em) {
+		this.em = em;
 	}
 
 

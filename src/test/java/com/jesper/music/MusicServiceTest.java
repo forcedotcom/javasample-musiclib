@@ -1,160 +1,102 @@
 package com.jesper.music;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.context.ApplicationContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.AfterTransaction;
-import org.springframework.test.context.transaction.BeforeTransaction;
-import org.springframework.transaction.annotation.Transactional;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 import com.jesper.music.model.Album;
-import com.jesper.music.model.Artist;
-import com.jesper.music.model.Genre;
 import com.jesper.music.service.MusicService;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/app-context.xml")
 public class MusicServiceTest {
 
-	@Inject
-    private ApplicationContext context;
 	
-	@Inject
-	private MusicService musicService;
-	
-	@PersistenceContext
-	private EntityManager em;
-	
-	private String testAlbumId;
-	private String testArtistId;
-	
-	@BeforeTransaction
-	public void createTestData() {
-		EntityManagerFactory emFactory = context.getBean("entityManagerFactory", EntityManagerFactory.class);
-		EntityManager mgr = emFactory.createEntityManager();
-		
-		EntityTransaction tx = mgr.getTransaction();
+	private EntityManager mockEntityManagerForQuery(final String query, final List result) {
 
-		tx.begin();
-		
-		Album album = new Album();
-		Artist artist = new Artist();
-		Genre genre = new Genre();
-		
-		genre.setName("R&B Dance");
-		
-		artist.setName("The Black Eyed Peas");
-		artist.setOrigin("Los Angeles");
-		Calendar cal = Calendar.getInstance();
-		cal.set(1990,0,1);
-		artist.setActiveStart(cal.getTime());
-		
-		album.setName("The Beginning");
-		album.setArtist(artist);
-		album.setGenre(genre);
-		cal.set(2010,11,1);
-		album.setReleaseDate(cal.getTime());
+		EntityManager em = mock(EntityManager.class);
+		//when(em.createQuery("SELECT o FROM wonderland o WHERE o.name = 'Alice'")).thenReturn(q);
+		when(em.createQuery(anyString())).thenAnswer(new Answer() {
+			public Object answer(InvocationOnMock invocation) {
 
-		mgr.persist(artist);
-		mgr.persist(genre);
-		mgr.persist(album);
+				// We pass null when we're not testing that MusicService is doing the correct query.
+				if(query!=null) {
+					assertEquals(query,invocation.getArguments()[0].toString());
+				}
+				Query q = mock(Query.class);
+				when(q.getResultList()).thenReturn(result);
+				return q;
+		    }
+		});
 		
-		tx.commit();
-
-		testAlbumId = album.getId();
-		testArtistId = artist.getId();
+		return em;
 	}
 	
-	@AfterTransaction
-	public void deleteTestData() {
-		EntityManagerFactory emFactory = context.getBean("entityManagerFactory", EntityManagerFactory.class);
-		EntityManager mgr = emFactory.createEntityManager();
-		EntityTransaction tx = mgr.getTransaction();
-		tx.begin();
-		
-		Album a = mgr.find(Album.class, testAlbumId);
-		//Genre g = em.find(Genre.class, a.getGenre().getId());
-		//Artist ar = em.find(Artist.class, a.getArtist().getId());
-		mgr.remove(a);
-		//em.remove(g);
-		//em.remove(ar);
-		tx.commit();
-	}
-	
-		
 	@Test
-	@Transactional(readOnly=true)
-	public void testFind() {
-		assertEquals("The Beginning",musicService.findAlbumById(testAlbumId).getName());
+	public void testGetListWithQuery() {
+
+		//Setup
+		MusicService service = new MusicService();
+		List<String> l = new ArrayList<String>();
+		l.add("Expected Result");
+		service.setEntityManager(mockEntityManagerForQuery("SELECT o FROM wonderland o WHERE o.name = 'Alice'", l));
+				
+		//Run
+		assertEquals("Expected Result",(String) service.getList("wonderland", "o.name = 'Alice'").get(0));
+		
 	}
 
 	@Test
-	@Transactional(readOnly=true)
-	public void testGetRelated() {
-		Artist a = (Artist) musicService.findEntity(Artist.class, testArtistId);
-		a.getAlbums();
+	public void testGetListWithoutQuery() {
+
+		//Setup
+		MusicService service = new MusicService();
+		List<String> l = new ArrayList<String>();
+		l.add("Expected Result");
+		service.setEntityManager(mockEntityManagerForQuery("SELECT o FROM wonderland o", l));
+				
+		//Run
+		assertEquals("Expected Result",(String) service.getList("wonderland", null).get(0));
+		
 	}
 
-//	@Test
-//	@Transactional(readOnly=true)
-//	public void testFind() {
-//		assertEquals("The Beginning",musicService.findAlbumById(testAlbumId).getName());
-//	}
+	@Test
+	public void testGetListWithNullEntity() {
+
+		//Setup
+		MusicService service = new MusicService();
+		List<String> l = new ArrayList<String>();
+		l.add("Expected Result");
+		service.setEntityManager(mockEntityManagerForQuery(null, l));
+
+		//Run
+		try {
+			service.getList(null,null);
+		} catch(IllegalArgumentException e) {
+			return;
+		}
+		fail("service.getList did not throw IllegalArgumentException as expected when passed a null entity");
+	}
 	
-	
-	
-	
-//	
-//	@Test
-//	@Transactional(readOnly=true) 
-//	public void get100Records() {
-//		long t = System.currentTimeMillis();
-//		List<Album> l = em.createQuery("SELECT a FROM Album a",Album.class).getResultList();
-//		System.out.println("Retrieved "+l.size()+" in "+(System.currentTimeMillis()-t)+" millis");
-//	}
-	
-//	@Test
-//	public void get100NoTx() {
-//		long t = System.currentTimeMillis();
-//		EntityManagerFactory emFactory = context.getBean("entityManagerFactory", EntityManagerFactory.class);
-//		EntityManager mgr = emFactory.createEntityManager();
-//		System.out.println("Got entity manager in "+(System.currentTimeMillis()-t)+" millis");
-//		t = System.currentTimeMillis();
-//		EntityTransaction tx = mgr.getTransaction();
-//		tx.begin();
-//		System.out.println("Opened transaction in "+(System.currentTimeMillis()-t)+" millis");
-//		t = System.currentTimeMillis();
-//		List<Album> l = em.createQuery("SELECT a FROM Album a",Album.class).getResultList();
-//		System.out.println("Retrieved "+l.size()+" in "+(System.currentTimeMillis()-t)+" millis");
-//		t = System.currentTimeMillis();
-//		
-//		tx.commit();
-//		System.out.println("Committed transaction in "+(System.currentTimeMillis()-t)+" millis");
-//	}
-	
-//	@Test
-//	public void get100Records2() {
-//		long t = System.currentTimeMillis();
-//		innerGet100Records2();
-//		System.out.println("Get2 took "+(System.currentTimeMillis()-t)+" millis");
-//	}
-//
-//	@Transactional(readOnly=true) 
-//	private void innerGet100Records2() {
-//		long t = System.currentTimeMillis();
-//		List<Album> l = em.createQuery("SELECT a FROM Album a",Album.class).getResultList();
-//		System.out.println("InnerGet2 got "+l.size()+" records in "+(System.currentTimeMillis()-t)+" millis");
-//	}
+	@Test
+	public void testfindValidEntity() {
+		Album a = new Album();
+		EntityManager em = mock(EntityManager.class);
+		when(em.find(Album.class, "new")).thenReturn(null);
+		when(em.find(Album.class, "a_valid_id")).thenReturn(new Album());
+		when(em.find(Album.class, "an_unknown_id")).thenReturn(null);
+
+		
+	}
+
 }

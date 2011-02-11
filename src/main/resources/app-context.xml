@@ -25,6 +25,6 @@
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
  	<bean id="forceService" class="com.force.sdk.connector.ForceServiceConnector">
-    	<property name="connectionName" value="JPAConfiguredConnection"/>
+    	<property name="connectionName" value="forceDatabase"/>
     </bean>
 </beans>
