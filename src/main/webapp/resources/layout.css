@@ -2,7 +2,7 @@
 /* This layout came from http://csseasy.com with very few changes applied. */
 
 body {
-	width:750px;
+	width:950px;
 	margin:0 auto;
 	margin-top:30px;
 }
@@ -10,14 +10,14 @@ body {
 /* ----- HEADER ----- */
 
 #header {
-	width:750px;
+	width:950px;
 	height:129px;
 	background:url(vmforce_header.png);
 }
 
 #app_title {
 	position: relative;
-	left: 480px;
+	left: 580px;
 	top: 85px;
 	width: 270px;
 	font-family: sans-serif;
@@ -29,7 +29,7 @@ body {
 /* ----- NAVIGATION ----- */
 
 #navigation {
-	width:750px;
+	width:950px;
 	height:40px;
 	background-color:#ffffff;
 	margin-top:10px;
@@ -39,7 +39,7 @@ body {
 /* ----- MAIN CONTENT ----- */
 
 #content { 
-	width:750px;
+	width:950px;
 	background-color:#ffffff;
 	margin-top:10px;
 	min-height:500px; /* for modern browsers */
@@ -52,7 +52,7 @@ body {
 /* NOT USED */
 
 #footer { 
-	width:750px;
+	width:950px;
 	height:30px;
 	background-color:#7ccaef;
 	margin-top:10px;
