@@ -3,11 +3,12 @@ package com.jesper.music.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -20,6 +21,9 @@ public class Album {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
     
     private String name;
     
@@ -82,5 +86,9 @@ public class Album {
 	public void setGenre(Genre genre) {
 		this.genre = genre;
 	}
-    
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
 }

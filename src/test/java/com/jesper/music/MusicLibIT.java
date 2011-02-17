@@ -5,6 +5,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -115,4 +117,12 @@ public class MusicLibIT {
 		}
 		
 	}
+
+	@SuppressWarnings("unchecked")
+	@Test
+	public void testTimestampQuery() {
+		List<Album> l = em.createQuery("SELECT o FROM Album o WHERE o.createdDate > :value").setParameter("value", new Date()).getResultList();
+		assertEquals("Finding albums created after right now did not return zero results as expected", 0, l.size());
+	}
+	
 }
