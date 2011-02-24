@@ -4,7 +4,6 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
 	version="1.0">
 
-	<!-- See https://sites.google.com/a/salesforce.com/java/specs/sfdc-service-binding/jpa-connection-setup?AuthEventSource=SSO -->
 	<persistence-unit name="forceDatabase">
 		<provider>com.force.sdk.jpa.PersistenceProviderImpl</provider>
 		<!-- In a single module web application, no need to specify classes. Classes 
