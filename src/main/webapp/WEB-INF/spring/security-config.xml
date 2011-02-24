@@ -14,9 +14,9 @@
 
     
     <!-- SFDC OAuth security config -->
-    <fss:oauth end-point="${force.endPoint}" consumer-key="${force.consumerKey}"
-        consumer-secret="${force.consumerSecret}" default-login-success="/secure/dogOwners" default-logout-success="/clear/logoutSuccess"
-        login-url="/login" logout-url="/logout" logout-from-force-dot-com="true" />
+    <fss:oauth logout-from-force-dot-com="true">
+    	<fss:connectionName name="forceDatabase"/>
+   	</fss:oauth>
     
        
 	<!-- Configure Spring Security -->
