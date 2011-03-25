@@ -53,8 +53,8 @@ body {
 
 #footer { 
 	width:950px;
-	height:30px;
-	background-color:#7ccaef;
+	height:129px;
+	background:url(vmforce-footer.png);
 	margin-top:10px;
 	margin-bottom: 10px;
 }

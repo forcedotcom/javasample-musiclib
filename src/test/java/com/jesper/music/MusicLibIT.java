@@ -1,14 +1,10 @@
 package com.jesper.music;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 import java.util.Calendar;
 
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,9 +23,6 @@ public class MusicLibIT {
 	@Inject
 	private MusicService musicService;
 	
-	@PersistenceContext
-	private EntityManager em;
-
 	@Inject
 	private ForceServiceConnector connector;
 	

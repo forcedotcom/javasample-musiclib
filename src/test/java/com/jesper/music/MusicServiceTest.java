@@ -27,6 +27,7 @@ public class MusicServiceTest {
 		EntityManager em = mock(EntityManager.class);
 		//when(em.createQuery("SELECT o FROM wonderland o WHERE o.name = 'Alice'")).thenReturn(q);
 		when(em.createQuery(anyString())).thenAnswer(new Answer() {
+		    @Override
 			public Object answer(InvocationOnMock invocation) {
 
 				// We pass null when we're not testing that MusicService is doing the correct query.
@@ -52,7 +53,7 @@ public class MusicServiceTest {
 		service.setEntityManager(mockEntityManagerForQuery("SELECT o FROM wonderland o WHERE o.name = 'Alice'", l));
 				
 		//Run
-		assertEquals("Expected Result",(String) service.getList("wonderland", "o.name = 'Alice'").get(0));
+		assertEquals("Expected Result", service.getList("wonderland", "o.name = 'Alice'").get(0));
 		
 	}
 
@@ -66,7 +67,7 @@ public class MusicServiceTest {
 		service.setEntityManager(mockEntityManagerForQuery("SELECT o FROM wonderland o", l));
 				
 		//Run
-		assertEquals("Expected Result",(String) service.getList("wonderland", null).get(0));
+		assertEquals("Expected Result", service.getList("wonderland", null).get(0));
 		
 	}
 
@@ -90,7 +91,6 @@ public class MusicServiceTest {
 	
 	@Test
 	public void testfindValidEntity() {
-		Album a = new Album();
 		EntityManager em = mock(EntityManager.class);
 		when(em.find(Album.class, "new")).thenReturn(null);
 		when(em.find(Album.class, "a_valid_id")).thenReturn(new Album());
