@@ -21,6 +21,7 @@
 			</tr>
 			<tr>
 				<td>Release Date:</td><td><form:input size="40" path="releaseDate"/></td>
+				<td>Date Format: yyyy-mm-dd</td>
 			</tr>
 		</table>
 		<p/>
