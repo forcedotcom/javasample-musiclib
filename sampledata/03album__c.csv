@@ -1,0 +1,101 @@
+freebaseId__c,name,artist__r.freebaseId__c,releaseDate__c,genre__r.freebaseId__c
+/en/giant_steps,"Giant Steps",/en/john_coltrane,"1960-01-01-0800",/en/jazz
+/en/catch_that_train,"Catch That Train!",/en/dan_zanes,,/en/childrens_music
+/en/sweet_oblivion,"Sweet Oblivion",/en/screaming_trees,"1993-01-01-0800",/en/grunge_music
+/en/your_saving_grace,"Your Saving Grace",/en/steve_miller_band,"1970-03-01-0800",/en/psychedelic_rock
+/m/0h5s05,"Live at the Fillmore East",/en/neil_young_crazy_horse,"2006-11-14-0800",/en/classic_rock
+/en/taking_tiger_mountain_by_strategy,"Taking Tiger Mountain (by Strategy)",/en/brian_eno,"1974-01-01-0800",/en/alternative_rock
+/en/acid_technology,"Acid Technology",/en/prototype_909,,/en/acid_techno
+/en/booty_house_anthems,"Booty House Anthems",/m/03f41x2,,/en/booty_house
+/en/disraeli_gears,"Disraeli Gears",/m/0d_yq,"1967-11-01-0800",/en/psychedelic_rock
+/m/01njc4r,"Best Of",/m/01njc5y,,/en/zouk
+/m/01l8pml,"The Awakening",/en/ahmad_jamal_trio,"1970-01-01-0800",/en/jazz
+/en/smell_the_glove,"Smell the Glove",/en/spinal_tap,"1982-01-01-0800",/en/heavy_metal
+/en/portrait_in_jazz,"Portrait in Jazz",/en/bill_evans_trio,"1959-01-01-0800",/en/jazz
+/en/audience_of_zero,"Audience Of Zero",/en/five_times_august,"2003-10-12-0700",/en/pop_music
+/en/something_clever,"Something Clever",/en/five_times_august,"2002-04-12-0700",/en/pop_music
+/en/moanin,"Moanin'",/en/art_blakey_the_jazz_messengers,"1958-01-01-0800",/en/jazz
+/en/brian_blade_fellowship,"Brian Blade Fellowship",/en/brian_blade,"1998-05-19-0700",/en/jazz
+/en/geogaddi,"Geogaddi",/en/boards_of_canada,"2002-02-13-0800",/en/electronic_music
+/en/use_your_appetite_for_spaghetti,"Use Your Appetite for Spaghetti",/m/01s82_c,"1994-01-01-0800",/en/indie_rock
+/m/01hsgqw,"Gordon",/en/barenaked_ladies,"1992-07-28-0700",/en/alternative_rock
+/en/where_have_i_known_you_before,"Where Have I Known You Before",/en/return_to_forever,"1974-01-01-0800",/en/jazz_fusion
+/en/dusky,"Dusky",/en/brown_university_band,"1993-01-01-0800",/en/concert_band
+/m/0bd44t,"The Graduate",/en/mc_lars,"2006-03-21-0800",/en/post_punk_laptop_rap
+/en/szezon_eastern_sugar,"Szezon / Eastern Sugar",/en/zagar,"2004-01-01-0800",/en/electronic_music
+/en/armchair_apocrypha,"Armchair Apocrypha",/en/andrew_bird,"2007-01-23-0800",/en/indie_rock
+/en/three_a_m,"Three A.M.",/en/gretchen_lieberum,"1999-04-01-0800",/en/jazz
+/en/exile_on_main_street,"Exile on Main St.",/en/the_rolling_stones,"1972-05-22-0700",/en/rock_music
+/en/close_to_the_edge,"Close to the Edge",/m/0b_xm,"1972-09-13-0700",/en/progressive_rock
+/en/2112,"2112",/en/rush,"1976-02-01-0800",/en/progressive_rock
+/en/thick_as_a_brick,"Thick as a Brick",/en/jethro_tull,"1972-01-01-0800",/en/progressive_rock
+/en/a_farewell_to_kings,"A Farewell to Kings",/en/rush,"1977-09-01-0700",/en/progressive_rock
+/m/01lfd9v,"Songs for Goldfish",/en/ben_folds,"2005-01-01-0800",/m/02qvd0
+/en/vicious_delicious,"Vicious Delicious",/en/infected_mushroom,"2007-01-01-0800",/en/psychedelic_trance
+/en/the_helmet,"The Helmet",/en/farout,"2004-01-01-0800",/en/house_music
+/en/life_wont_wait,"Life Won't Wait",/m/01hykl_,"1998-07-14-0700",/en/punk_rock
+/en/this_was,"This Was",/en/jethro_tull,"1968-10-25-0700",/en/blues-rock
+/m/02hw7jn,"Sunshine Day",/en/jethro_tull,"1968-01-01-0800",/en/blues-rock
+/m/02hwb0f,"A Song for Jeffrey",/en/jethro_tull,"1968-01-01-0800",/en/blues-rock
+/en/meddle,"Meddle",/en/pink_floyd,"1971-10-30-0700",/en/psychedelic_rock
+/en/laid,"Laid",/en/james,"1993-09-05-0700",/en/alternative_rock
+/en/soviet_kitsch,"Soviet Kitsch",/en/regina_spektor,"2004-08-17-0700",/en/classical_piano
+/en/breath_of_the_demiurg,"Breath of the Demiurg",/en/demiurg,"2007-01-01-0800",/en/death_metal
+/en/the_meeting,"the meeting",/en/art_ensemble_of_chicago,,/en/jazz
+/en/equinoxe,"Équinoxe",/en/jean_michel_jarre,"1978-12-01-0800",/en/electronic_music
+/en/the_velvet_underground_and_nico,"The Velvet Underground and Nico",/en/the_velvet_underground,"1967-03-12-0800",/en/avant-garde
+/m/01l2wb8,"Let's Live for Today",/en/the_grass_roots,,/en/rock_music
+/en/dark_side_of_the_moon,"The Dark Side of the Moon",/en/pink_floyd,"1973-03-24-0800",/en/progressive_rock
+/en/toledo_window_box,"Toledo Window Box",/en/george_carlin,"1974-11-01-0800",/en/comedy
+/m/02k9_sx,"Freddie and the Dreamers",/en/freddie_and_the_dreamers,"1965-01-01-0800",/en/rock_music
+/en/get_the_knack,"Get the Knack",/en/the_knack,"1979-04-01-0800",/en/new_wave
+/m/02kb5_j,"Bahamut",/en/hazmat_modine,"2006-01-01-0800",/en/blues
+/en/sign_o_the_times,"Sign 'O' the Times",/en/prince_1958,"1987-03-31-0800",/en/funk
+/en/ten,"Ten",/en/pearl_jam,"1991-08-27-0700",/en/grunge_music
+/en/send_away_the_tigers,"Send Away The Tigers",/en/manic_street_preachers,"2007-05-07-0700",/en/alternative_rock
+/m/01h98sy,"Metallica",/en/metallica,"1991-08-12-0700",/en/heavy_metal
+/m/01qw13b,"Employment",/en/kaiser_chiefs,"2005-03-07-0800",/en/indie_rock
+/en/king_tubby_meets_rockers_uptown,"King Tubby Meets Rockers Uptown",/en/augustus_pablo,"1976-01-01-0800",/en/dub_music
+/en/java_java_java_java,"Java Java Java Java",/en/randys_all_stars,,/en/dub_music
+/en/the_message_dubwise,"The Message Dubwise",/en/prince_buster,,/en/dub_music
+/en/the_dub_factor,"The Dub Factor",/en/black_uhuru,,/en/dub_music
+/en/cry_tuff_dub_encounter,"Cry Tuff Dub Encounter",/en/prince_far_i,"1978-01-01-0800",/en/dub_music
+/en/blackboard_jungle_dub,"Blackboard Jungle Dub",/en/upsetter,,/en/dub_music
+/en/aquarius_dub,"Aquarius Dub",/en/herman_chin_loy,,/en/dub_music
+/en/dub_from_the_roots,"Dub From the Roots",/en/king_tubby,"1974-01-01-0800",/en/dub_music
+/en/a_new_chapter_of_dub,"A New Chapter Of Dub",/en/aswad,"1981-01-01-0800",/en/dub_music
+/en/present_arms_in_dub,"Present Arms In Dub",/en/ub40,"1981-10-01-0700",/en/dub_music
+/m/01m9d9p,"Light (Music)",/en/jeff_deyo,"2004-02-10-0800",/en/contemporary_christian_music
+/en/bitches_brew,"Bitches Brew",/en/miles_davis,"1970-04-01-0800",/en/jazz_fusion
+/m/04g10l,"Rancid",/m/01hykl_,"1992-01-01-0800",/en/punk_rock
+/en/indestructible,"Indestructible",/m/01hykl_,"2003-08-19-0700",/en/punk_rock
+/m/01k85gr,"Satyagraha",/en/philip_glass,"1985-01-01-0800",/en/minimalist_music
+/m/01kfcll,"Music for 18 Musicians (Ensemble Modern)",/en/steve_reich,"1998-03-31-0800",/en/minimalist_music
+/en/love_is_my_religion,"Love Is My Religion",/en/ziggy_marley,"2006-07-02-0700",/en/reggae
+/m/01mb727,"Genesis",/en/bruno_coulais,,/en/film_soundtrack
+/m/01kkv4w,"American Beauty",/en/thomas_newman,"2000-01-11-0800",/en/film_soundtrack
+/en/systematic_chaos,"Systematic Chaos",/en/dream_theater,"2007-06-05-0700",/en/progressive_metal
+/m/02nq6vh,"Sheshet",/m/02np0ky,"1977-01-01-0800",/en/progressive_rock
+/en/the_sweet_escape,"The Sweet Escape",/en/gwen_stefani,"2006-12-05-0800",/en/hip_pop_r_b
+/m/02nr3p1,"Sweet Warrior",/en/richard_thompson,"2007-05-29-0700",/en/rock_music
+/en/dub_landing,"Dub Landing",/en/scientist_1960,"1981-01-01-0800",/en/dub_music
+/m/0126q5,"Ænima",/m/07m7k,"1996-09-24-0700",/m/01hlmn2
+/m/02ntnq0,"King of the Grey Islands",/en/candlemass,"2007-06-22-0700",/en/doom_metal
+/m/08rjd_,"Candlemass",/en/candlemass,"2005-05-02-0700",/en/doom_metal
+/en/kind_of_pluto_ep,"Kind of Pluto EP",/en/kind_of_pluto,"2001-09-01-0700",/en/rock_music
+/en/bruxin,"Bruxin'",/en/john_stetch,"2006-01-01-0800",/en/jazz
+/en/undertow,"Undertow",/m/07m7k,"1993-04-06-0700",/en/alternative_metal
+/m/01ckwv,"Opiate",/m/07m7k,"1992-03-10-0800",/en/alternative_metal
+/en/lateralus,"Lateralus",/m/07m7k,"2001-05-14-0700",/en/progressive_rock
+/en/salival,"Salival",/m/07m7k,"2000-12-12-0800",/en/alternative_metal
+/m/02nt_fp,"Year Zero",/en/nine_inch_nails,"2007-04-13-0700",/en/industrial_rock
+/en/tovabb_is_van_mondjam_meg,"Tovább is van, mondjam még?",/en/sub_bass_monster,"2001-05-01-0700",/en/hip_hop
+/m/02nvm7z,"Sub Bass Monster",/en/sub_bass_monster,"2006-02-01-0800",/en/hip_hop
+/m/01qqjtk,"Félre az útból",/en/sub_bass_monster,"1999-06-01-0700",/en/hip_hop
+/m/02nw18g,"The Reminder",/en/leslie_feist,"2007-04-23-0700",/m/02qvd0
+/en/delusion_of_the_fury,"Delusion of the Fury: A Ritual of Dream and Delusion",/en/harry_partch,,/en/20th_century_classical_music
+/m/01k3swy,"Wrong",/en/nomeansno,"1989-01-01-0800",/en/rock_music
+/m/0162lh,"A",/en/jethro_tull,"1980-08-29-0700",/en/rock_music
+/en/shokolaad,"Shokolaad",/m/01wfprl,"2006-01-01-0800",/en/indie_pop
+/m/01rds6r,"Wolfmother",/en/wolfmother,"2005-10-31-0800",/en/hard_rock
+/en/the_girl_with_the_flaxen_hair,"The Girl with the Flaxen Hair",/en/the_platina,,/en/jazz
