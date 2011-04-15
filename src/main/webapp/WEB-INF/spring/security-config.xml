@@ -15,7 +15,7 @@
     
     <!-- SFDC OAuth security config -->
     <fss:oauth logout-from-force-dot-com="true">
-    	<fss:connectionName name="forceDatabase"/>
+    	<fss:connectionName name="forceDatabase2"/>
    	</fss:oauth>
     
        
@@ -23,9 +23,13 @@
 	<!-- use-expressions and hasRole only needed if jsp tags are used. 
 		If not using jsp tags you can omit the use-expressions property and set access="ROLE_USER" on the intercept-url tags -->
 	<security:http entry-point-ref="authenticationProcessingFilterEntryPoint" use-expressions="true">
-	    <!--<security:anonymous />
-	    -->
+		<!-- Replace <security:anonymouse/> with the commented out intercept-url to enable security. 
+			Before doing this be sure that you have oauth credentials configured along with your forceDatabase credentials. 
+			See the Force.com connector documentation for more information.-->    
+		    <security:anonymous />
+	    <!--
             <security:intercept-url pattern="/**" access="isAuthenticated()" />
+	    -->
 	    <!-- sets this as the authentication filter over the default -->
 	    <security:custom-filter position="FORM_LOGIN_FILTER" ref="authenticationFilter"/>
 	    <security:custom-filter position="LOGOUT_FILTER" ref="logoutFilter"/>
