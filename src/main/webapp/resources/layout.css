@@ -12,7 +12,7 @@ body {
 #header {
 	width:950px;
 	height:129px;
-	background:url(vmforce_header.png);
+	background:url(header.png);
 }
 
 #app_title {
@@ -54,7 +54,7 @@ body {
 #footer { 
 	width:950px;
 	height:129px;
-	background:url(vmforce-footer.png);
+	background:url(footer.png);
 	margin-top:10px;
 	margin-bottom: 10px;
 }
