@@ -5,4 +5,4 @@
 # You can obtain a token from within the Admin console, Setup -> My Personal Information -> Reset my Security Token
 # You are also emailed a new security token any time you change your force.com password.
 
-url=force://vmf01.t.salesforce.com;user=<your username>;password=<your password>
+url=force://login.salesforce.com;user=<your username>;password=<your password>
