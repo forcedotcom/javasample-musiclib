@@ -4,3 +4,5 @@
 target
 forceDatabase.properties
 .springBeans
+deploy
+deploy.zip
