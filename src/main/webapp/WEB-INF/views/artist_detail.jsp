@@ -18,14 +18,16 @@
 			</tr>
 			<tr>
 				<td>Active Start:</td><td><form:input size="40" path="activeStart"/></td>
+                <td>Date Format: yyyy-mm-dd</td>
 			</tr>
 			<tr>
 				<td>Active End:</td><td><form:input size="40" path="activeEnd"/></td>
+                <td>Date Format: yyyy-mm-dd</td>
 			</tr>
 		</table>
 		<p/>
 		<input type="submit" value="Save"/>
-		<input type="button" value="Album List" onclick="location.href='.'"/>
+		<input type="button" value="Artist List" onclick="location.href='.'"/>
 		</form:form>
 	</jsp:body>
 	
