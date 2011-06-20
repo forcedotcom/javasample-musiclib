@@ -157,7 +157,7 @@
 			<version>${org.aspectj-version}</version>
 		</dependency>
 
-		<!-- VMForce -->
+		<!-- Database.com -->
 
 		<dependency>
 			<groupId>com.force.sdk</groupId>
@@ -216,13 +216,13 @@
 	</dependencies>
 
 	<repositories>
-		<!-- VMforce snapshot repository -->
+		<!-- Force.com snapshot repository -->
 		<repository>
 			<id>com.force.maven.snapshot</id>
 			<name>Force.com Maven Repo</name>
 			<url>http://repo.t.salesforce.com/archiva/repository/snapshots</url>
 		</repository>
-		<!-- VMforce release repository -->
+		<!-- Force.com release repository -->
 		<repository>
 			<id>com.force.maven.release</id>
 			<name>Force.com Maven Repo</name>
