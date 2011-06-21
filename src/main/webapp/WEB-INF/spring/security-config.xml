@@ -10,9 +10,7 @@
 		http://www.salesforce.com/schema/springsecurity 
         http://media.developerforce.com/schema/force-springsecurity-1.2.xsd">
 
-	<context:property-placeholder location="classpath:oauth.properties"/>
 
-    
     <!-- SFDC OAuth security config -->
     <fss:oauth logout-from-force-dot-com="true">
     	<fss:connectionName name="forceDatabase2"/>
