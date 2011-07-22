@@ -215,24 +215,6 @@
 		</dependency>
 	</dependencies>
 
-	<repositories>
-		<!-- Force.com snapshot repository -->
-		<repository>
-			<id>com.force.maven.snapshot</id>
-			<name>Force.com Maven Repo</name>
-			<url>http://repo.t.salesforce.com/archiva/repository/snapshots</url>
-		</repository>
-		<!-- Force.com release repository -->
-		<repository>
-			<id>com.force.maven.release</id>
-			<name>Force.com Maven Repo</name>
-			<url>http://repo.t.salesforce.com/archiva/repository/releases</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
 	<pluginRepositories>
 		<pluginRepository>
 			<id>DataNucleus_2</id>
